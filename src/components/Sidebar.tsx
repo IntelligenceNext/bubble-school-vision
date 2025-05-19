@@ -2,14 +2,48 @@
 import { useState } from "react";
 import { NavItem, navigationData } from "@/data/navigationData";
 import { cn } from "@/lib/utils";
-import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
+import { 
+  ChevronDown, 
+  ChevronRight, 
+  Menu, 
+  X,
+  LayoutDashboard,
+  School,
+  Landmark,
+  GraduationCap,
+  Users,
+  BarChart3,
+  BookOpen,
+  Bus,
+  Activity,
+  Home,
+  MessageSquare,
+  Library,
+  Settings
+} from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+
+// Mapping for icon names to Lucide icons
+const iconMap: Record<string, React.ReactNode> = {
+  "dashboard": <LayoutDashboard size={18} />,
+  "schools": <School size={18} />,
+  "classes": <Landmark size={18} />,
+  "students": <GraduationCap size={18} />,
+  "admins": <Users size={18} />,
+  "income": <BarChart3 size={18} />,
+  "manage-exams": <BookOpen size={18} />,
+  "transportation": <Bus size={18} />,
+  "activities": <Activity size={18} />,
+  "hostels": <Home size={18} />,
+  "lessons": <BookOpen size={18} />,
+  "tickets": <MessageSquare size={18} />,
+  "library": <Library size={18} />,
+  "settings": <Settings size={18} />
+};
 
 // Custom dynamic icon component that maps icon names to Lucide icons
 const DynamicIcon = ({ name }: { name: string }) => {
-  // For simplicity, we'll use a basic icon representation
-  // In a real app, you'd map these to proper icons
-  return (
+  return iconMap[name] || (
     <div className="w-5 h-5 flex items-center justify-center">
       <span className="block w-2 h-2 rounded-full bg-current"></span>
     </div>
@@ -112,11 +146,18 @@ export default function Sidebar() {
           {/* Logo */}
           <div className="flex items-center justify-center h-16 border-b">
             {isSidebarOpen ? (
-              <h1 className="text-xl font-bold bg-gradient-to-r from-bubble-purple to-bubble-blue bg-clip-text text-transparent">
-                MySchool
-              </h1>
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-bubble-purple to-bubble-blue flex items-center justify-center text-white font-bold text-xl">
+                  M
+                </div>
+                <h1 className="ml-2 text-xl font-bold bg-gradient-to-r from-bubble-purple to-bubble-blue bg-clip-text text-transparent">
+                  MySchool
+                </h1>
+              </div>
             ) : (
-              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-bubble-purple to-bubble-blue"></div>
+              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-bubble-purple to-bubble-blue flex items-center justify-center text-white font-bold text-xl">
+                M
+              </div>
             )}
           </div>
           

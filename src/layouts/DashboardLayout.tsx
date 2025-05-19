@@ -13,8 +13,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       <Sidebar />
       
       {/* Main Content */}
-      <div className="lg:ml-64 min-h-screen">
-        {children}
+      <div className="lg:ml-64 min-h-screen p-4">
+        <div className="container mx-auto">
+          {children}
+        </div>
       </div>
     </div>
   );
