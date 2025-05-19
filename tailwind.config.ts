@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,24 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				bubble: {
+					purple: {
+						light: '#D6BCFA',
+						DEFAULT: '#9b87f5',
+						dark: '#7E69AB',
+					},
+					blue: {
+						light: '#D3E4FD',
+						DEFAULT: '#33C3F0',
+						dark: '#1EAEDB',
+					},
+					gray: {
+						light: '#F7F9FC',
+						DEFAULT: '#8E9196',
+						dark: '#221F26',
+					},
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,26 +91,38 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' },
+				},
+				'slide-in': {
+					'0%': { transform: 'translateX(-10px)', opacity: '0' },
+					'100%': { transform: 'translateX(0)', opacity: '1' },
+				},
+				'bubble-float': {
+					'0%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' },
+					'100%': { transform: 'translateY(0)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.3s ease-out',
+				'slide-in': 'slide-in 0.3s ease-out',
+				'bubble-float': 'bubble-float 3s ease-in-out infinite',
+			},
+			boxShadow: {
+				'bubble': '0 10px 25px -5px rgba(155, 135, 245, 0.1), 0 8px 10px -6px rgba(155, 135, 245, 0.1)',
+				'bubble-hover': '0 20px 30px -10px rgba(155, 135, 245, 0.2), 0 10px 15px -5px rgba(155, 135, 245, 0.2)',
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
