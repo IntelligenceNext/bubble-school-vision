@@ -1,4 +1,3 @@
-
 import { Users, BookOpen, Calendar, Award, CreditCard, School } from "lucide-react";
 import DashboardCard from "@/components/DashboardCard";
 import ModuleQuickLinks from "@/components/ModuleQuickLinks";
@@ -6,10 +5,10 @@ import ActivityCard from "@/components/ActivityCard";
 import NoticeboardCard from "@/components/NoticeboardCard";
 
 const activities = [
-  { id: 1, user: "Admin", action: "Added new student 'John Doe'", time: "10 mins ago", status: "completed" },
-  { id: 2, user: "Sarah", action: "Updated class schedule for 9th Grade", time: "30 mins ago", status: "completed" },
-  { id: 3, user: "Daniel", action: "Uploaded exam results for 10th Grade", time: "1 hour ago", status: "pending" },
-  { id: 4, user: "Emma", action: "Created new event 'Annual Sports Day'", time: "2 hours ago", status: "completed" }
+  { id: 1, user: "Admin", action: "Added new student 'John Doe'", time: "10 mins ago", status: "completed" as const },
+  { id: 2, user: "Sarah", action: "Updated class schedule for 9th Grade", time: "30 mins ago", status: "completed" as const },
+  { id: 3, user: "Daniel", action: "Uploaded exam results for 10th Grade", time: "1 hour ago", status: "pending" as const },
+  { id: 4, user: "Emma", action: "Created new event 'Annual Sports Day'", time: "2 hours ago", status: "completed" as const }
 ];
 
 const notices = [
